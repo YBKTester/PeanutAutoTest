@@ -1,5 +1,6 @@
 package com.bink.utils;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import java.util.Map;
@@ -22,7 +23,12 @@ public class RestUtils {
      * @param paramsMap 请求参数
      */
     public static void postPrint(String url, String cookie, Map<String, Object> paramsMap) {
-        Response response = given().cookie(cookie).log().all().params(paramsMap).post(url);
+        Response response = given().
+                contentType(ContentType.JSON).
+                cookie(cookie).
+                log().all().
+                params(paramsMap).
+                post(url);
         response.prettyPrint();
     }
 
@@ -34,7 +40,7 @@ public class RestUtils {
      * @param paramsMap 请求参数
      */
     public static void getPrint(String url, String cookie, Map<String, Object> paramsMap) {
-        Response response = given().cookie(cookie).log().all().params(paramsMap).get(url);
+        Response response = given().contentType(ContentType.JSON).cookie(cookie).log().all().params(paramsMap).get(url);
         response.prettyPrint();
     }
 }

@@ -1,0 +1,39 @@
+2020-06-17 14:21:12 INFO  TestBink:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:21:13 INFO  TestBink:16 - 测试中
+2020-06-17 14:21:13 INFO  TestBink:17 - api
+2020-06-17 14:21:13 INFO  TestBink:18 - https://reqres.in
+2020-06-17 14:21:13 INFO  TestBink:66 - 测试完成，准备恢复环境！
+2020-06-17 14:29:08 INFO  TestBink:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:29:09 INFO  TestBink:16 - 测试中
+2020-06-17 14:29:09 INFO  TestBink:17 - api
+2020-06-17 14:29:09 INFO  TestBink:18 - https://reqres.in
+2020-06-17 14:29:09 INFO  TestBink:66 - 测试完成，准备恢复环境！
+2020-06-17 14:29:09 INFO  CreateTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:29:09 INFO  CreateTest:66 - 测试完成，准备恢复环境！
+2020-06-17 14:29:09 INFO  ListUsersTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:29:09 INFO  ListUsersTest:66 - 测试完成，准备恢复环境！
+2020-06-17 14:33:59 INFO  TestBink:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:34:00 INFO  TestBink:16 - 测试中
+2020-06-17 14:34:00 INFO  TestBink:17 - api
+2020-06-17 14:34:00 INFO  TestBink:18 - https://reqres.in
+2020-06-17 14:34:00 INFO  TestBink:66 - 测试完成，准备恢复环境！
+2020-06-17 14:34:00 INFO  TestDemo:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:36:07 INFO  TestDemo:66 - 测试完成，准备恢复环境！
+2020-06-17 14:36:07 INFO  CreateTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:36:07 INFO  CreateTest:19 - api
+2020-06-17 14:36:07 INFO  CreateTest:20 - https://reqres.in
+2020-06-17 14:36:07 INFO  CreateTest:31 - api
+2020-06-17 14:36:07 INFO  CreateTest:32 - https://reqres.in
+2020-06-17 14:36:07 INFO  CreateTest:66 - 测试完成，准备恢复环境！
+2020-06-17 14:36:07 INFO  ListUsersTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:36:07 INFO  ListUsersTest:17 - api
+2020-06-17 14:36:07 INFO  ListUsersTest:18 - https://reqres.in
+2020-06-17 14:36:07 INFO  ListUsersTest:66 - 测试完成，准备恢复环境！
+2020-06-17 14:40:29 INFO  CreateTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:40:31 INFO  CreateTest:19 - BaseURI: https://reqres.in
+2020-06-17 14:40:31 INFO  CreateTest:20 - BasePath: /api
+2020-06-17 14:40:31 INFO  CreateTest:66 - 测试完成，准备恢复环境！
+2020-06-17 14:44:07 INFO  CreateTest:58 - >>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<
+2020-06-17 14:44:08 INFO  CreateTest:21 - BaseURI: https://reqres.in
+2020-06-17 14:44:08 INFO  CreateTest:22 - BasePath: 
+2020-06-17 14:44:08 INFO  CreateTest:66 - 测试完成，准备恢复环境！
