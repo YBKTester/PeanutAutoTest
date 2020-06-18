@@ -4,6 +4,8 @@ import com.bink.utils.TestUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.apache.log4j.Level;
@@ -14,6 +16,7 @@ import org.apache.log4j.PropertyConfigurator;
 import io.restassured.RestAssured;
 
 import static com.bink.common.RequestCommon.PORT_80;
+import static com.bink.utils.RestUtils.getValueByPath;
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
@@ -31,20 +34,32 @@ import io.restassured.specification.RequestSpecification;
 public class TestBase {
     public static RequestSpecification httpRequest;
     public static Response response;
-    public Logger logger;
+    public static Logger logger;
 
     public static String serverHost;
     public static String port;
+    public static String token;
+    public static StringBuilder cookie;
     public Response res = null;
     public JsonPath jp = null;
     public RequestSpecification req;
 
+    /**
+     * 测试环境用户登陆
+     */
+    public static String TEST_ADMIN;
+    public static String TEST_ADMIN_PASSWORD;
+    public static String BASE_PATH;
     public static TestUtils testUtils = new TestUtils();
+    public static HashMap<String, Object> paramsMap = new HashMap<>();
 
     static {
         ResourceBundle rb = ResourceBundle.getBundle("config");
-        serverHost = rb.getString("Host");
-        port = rb.getString("Port");
+        serverHost = rb.getString("TEST_HOST");
+        port = rb.getString("TEST_PORT");
+        TEST_ADMIN = rb.getString("TEST_ADMIN");
+        TEST_ADMIN_PASSWORD = rb.getString("TEST_ADMIN_PASSWORD");
+        BASE_PATH = rb.getString("BASE_PATH");
     }
 
     /**
@@ -52,20 +67,35 @@ public class TestBase {
      */
     @BeforeClass
     public void setUp() {
-        logger = Logger.getLogger(this.getClass().getName());
-        PropertyConfigurator.configure("log4j.properties");
-        logger.setLevel(Level.DEBUG);
-        logger.info(">>>>>>>>>>>>>>测试开始，准备环境<<<<<<<<<<<<<<");
+        logConfig();
+        logger.info(">>>>>>>>>>>>>>开始准备测试环境<<<<<<<<<<<<<<");
         setBaseUri();
-        setBasePath("");
+        setBasePath(BASE_PATH);
         setContentType(ContentType.JSON);
+
+
+        paramsMap.put("operatorCode", TEST_ADMIN);
+        paramsMap.put("password", TEST_ADMIN_PASSWORD);
+        token = getValueByPath("/submitLogin", paramsMap, "user_token");
+
+        paramsMap.clear();
     }
 
     @AfterClass
     public void tearDown() {
-        logger.info("测试完成，准备恢复环境！");
+        logger.info(">>>>>>>>>>>>>>测试完成，恢复环境！<<<<<<<<<<<<<<");
         resetBaseUri();
         resetBasePath();
+    }
+
+    /**
+     * 日志配置
+     */
+    public void logConfig() {
+        logger = Logger.getLogger(this.getClass().getName());
+        PropertyConfigurator.configure("log4j.properties");
+        logger.setLevel(Level.DEBUG);
+        logger.info(">>>>>>>>>>>>>>日志配置完成<<<<<<<<<<<<<<");
     }
 
     /**
@@ -90,7 +120,7 @@ public class TestBase {
         } else {
             RestAssured.baseURI = serverHost + ":" + port;
         }
-        System.out.println(RestAssured.baseURI);
+//        System.out.println(RestAssured.baseURI);
     }
 
     /**
@@ -156,4 +186,20 @@ public class TestBase {
         return new JsonPath(json);
     }
 
+    /**
+     * 打印测试方法
+     *
+     * @param cookie    Cookie
+     * @param url       请求地址
+     * @param paramsMap 请求参数
+     */
+    public void print(String cookie, String url, Map<String, Object> paramsMap) {
+        Response response = given().
+                contentType(ContentType.URLENC).
+                cookie(cookie).
+                log().all().
+                params(paramsMap).
+                post("/submitLogin");
+        response.prettyPrint();
+    }
 }
