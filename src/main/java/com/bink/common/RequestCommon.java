@@ -22,4 +22,6 @@ public class RequestCommon {
     public static final int STATUS_CODE_400 = 400;
     public static final int STATUS_CODE_404 = 404;
 
+    public static final String COOKIE_NAME = "JSESSIONID";
+
 }
