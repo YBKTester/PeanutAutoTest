@@ -1,5 +1,6 @@
 package com.bink.tests;
 
+import com.bink.base.RequestParams;
 import com.bink.utils.Request;
 import com.bink.utils.RequestFactory;
 
@@ -31,9 +32,8 @@ public class TestMain {
 
         String requestMethod = rb.getString("method");
         Request request = RequestFactory.getRequestMethod(requestMethod);
-
-        request.request(cookie, url, paramsMap);
-
+        RequestParams requestParams = new RequestParams();
+        request.requestEqual(requestParams);
 
 
     }

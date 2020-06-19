@@ -1,5 +1,7 @@
 package com.bink.utils;
 
+import com.bink.base.RequestParams;
+
 import java.util.Map;
 
 /**
@@ -13,9 +15,7 @@ public interface Request {
     /**
      * 发起Http请求
      *
-     * @param cookie   请求Cookie
-     * @param url      请求地址
-     * @param parasMap 请求参数
+     * @param params 请求参数
      */
-    void request(String cookie, String url, Map<String, Object> parasMap);
+    void requestEqual(RequestParams params);
 }

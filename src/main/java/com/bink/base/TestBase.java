@@ -39,7 +39,7 @@ public class TestBase {
     public static String serverHost;
     public static String port;
     public static String token;
-    public static StringBuilder cookie;
+    public static String cookie;
     public Response res = null;
     public JsonPath jp = null;
     public RequestSpecification req;
@@ -72,7 +72,6 @@ public class TestBase {
         setBaseUri();
         setBasePath(BASE_PATH);
         setContentType(ContentType.JSON);
-
 
         paramsMap.put("operatorCode", TEST_ADMIN);
         paramsMap.put("password", TEST_ADMIN_PASSWORD);

@@ -1,10 +1,12 @@
 package com.bink.utils;
 
+import com.bink.base.RequestParams;
 import io.restassured.http.ContentType;
 
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * Get请求
@@ -13,20 +15,18 @@ import static io.restassured.RestAssured.given;
  * @date 2020/6/17
  */
 public class Get implements Request {
+
     /**
      * 发起Get请求
      *
-     * @param cookie   请求Cookie
-     * @param url      请求地址
-     * @param parasMap 请求参数
+     * @param params 请求参数
      */
     @Override
-    public void request(String cookie, String url, Map<String, Object> parasMap) {
+    public void requestEqual(RequestParams params) {
         given().
                 contentType(ContentType.JSON).
-                cookie(cookie).
-                params(parasMap).
-                log().all().
-                get(url);
+                cookie(params.getCookieName(), params.getCookieValue()).
+                params(params.getParasMap()).
+                get(params.getUrl()).then().body(params.getJsonPath(), equalTo(params.getExceptedValue()));
     }
 }

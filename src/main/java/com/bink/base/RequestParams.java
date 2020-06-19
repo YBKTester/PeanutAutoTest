@@ -14,7 +14,19 @@ public class RequestParams {
     private String url;
     private Map<String, Object> parasMap;
     private String jsonPath;
-    private String exceptedValue;
+    private Object exceptedValue;
+
+    public RequestParams() {
+    }
+
+    public RequestParams(String cookieName, String cookieValue, String url, Map<String, Object> parasMap, String jsonPath, Object exceptedValue) {
+        this.cookieName = cookieName;
+        this.cookieValue = cookieValue;
+        this.url = url;
+        this.parasMap = parasMap;
+        this.jsonPath = jsonPath;
+        this.exceptedValue = exceptedValue;
+    }
 
     public String getCookieName() {
         return cookieName;
@@ -56,7 +68,7 @@ public class RequestParams {
         this.jsonPath = jsonPath;
     }
 
-    public String getExceptedValue() {
+    public Object getExceptedValue() {
         return exceptedValue;
     }
 

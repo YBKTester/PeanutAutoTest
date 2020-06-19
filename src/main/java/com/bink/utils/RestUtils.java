@@ -103,7 +103,7 @@ public class RestUtils {
      */
     public static String getValueByPath(String url, Map<String, Object> paramsMap, String jsonPath) {
         String value = given().
-                params(paramsMap).log().all().
+                params(paramsMap).
                 post(url).
                 body().
                 path(jsonPath).
