@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp1y4sxrvbln69yi9o.mysql.rds.aliyuncs.com:3306/feerate_test?useSSL=false&serverTimezone=GMT%2B8
+    username: feerate
+    password: feerate@123
