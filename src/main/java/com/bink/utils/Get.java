@@ -22,9 +22,9 @@ public class Get implements Request {
      * @param params 请求参数
      */
     @Override
-    public void requestEqual(RequestParams params) {
+    public void requestEqual(RequestParams params,ContentType contentType) {
         given().
-                contentType(ContentType.JSON).
+                contentType(contentType).
                 cookie(params.getCookieName(), params.getCookieValue()).
                 params(params.getParasMap()).
                 get(params.getUrl()).then().body(params.getJsonPath(), equalTo(params.getExceptedValue()));

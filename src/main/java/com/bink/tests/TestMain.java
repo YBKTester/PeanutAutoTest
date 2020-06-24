@@ -3,13 +3,11 @@ package com.bink.tests;
 import com.bink.base.RequestParams;
 import com.bink.utils.Request;
 import com.bink.utils.RequestFactory;
+import io.restassured.http.ContentType;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-
-import static com.bink.common.UrlCommon.BAIDU_URL;
 
 /**
  * 测试工厂类
@@ -33,7 +31,7 @@ public class TestMain {
         String requestMethod = rb.getString("method");
         Request request = RequestFactory.getRequestMethod(requestMethod);
         RequestParams requestParams = new RequestParams();
-        request.requestEqual(requestParams);
+        request.requestEqual(requestParams, ContentType.JSON);
 
 
     }

@@ -11,7 +11,6 @@
     <test name="API automation test">
         <classes>
             <class name="com.bink.cases.TestBink"/>
-            <class name="com.bink.cases.TestDemo"/>
             <class name="com.bink.cases.CreateTest"/>
             <class name="com.bink.cases.ListUsersTest"/>
         </classes>

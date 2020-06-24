@@ -23,13 +23,13 @@ public class Post implements Request {
      * @param params 请求参数
      */
     @Override
-    public void requestEqual(RequestParams params) {
+    public void requestEqual(RequestParams params,ContentType contentType) {
         given().
-                contentType(ContentType.JSON).
+                contentType(contentType).
                 cookie(params.getCookieName(), params.getCookieValue()).
-                params(params.getParasMap()).
+                params(params.getParasMap()).log().all().
                 post(params.getUrl()).
-                then().
+                then().log().all().
                 body(params.getJsonPath(), equalTo(params.getExceptedValue()));
     }
 }

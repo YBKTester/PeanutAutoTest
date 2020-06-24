@@ -4,12 +4,13 @@ import com.bink.base.RequestParams;
 import com.bink.base.TestBase;
 import com.bink.utils.Request;
 import com.bink.utils.RequestFactory;
+import io.restassured.http.ContentType;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static com.bink.common.ApiPathCommon.*;
 import static com.bink.common.RequestCommon.COOKIE_NAME;
-import static com.bink.utils.RestUtils.postPrintByJson;
+import static com.bink.utils.RestUtils.*;
 
 /**
  * 测试运行
@@ -49,13 +50,13 @@ public class BizFrameTestController extends TestBase {
     @Test(dataProvider = "test")
     public void getCurrUserInfoTest(String requestMethod, RequestParams requestParams) throws Exception {
         Request request = RequestFactory.getRequestMethod(requestMethod);
-        request.requestEqual(requestParams);
+        request.requestEqual(requestParams, ContentType.JSON);
         paramsMap.clear();
     }
 
 
     @Test
-    public void Test() throws Exception {
+    public void Test()  {
 
     }
 
@@ -79,17 +80,27 @@ public class BizFrameTestController extends TestBase {
     @Test(dataProvider = "getProvince")
     public void getProvinceTest(String requestMethod, RequestParams requestParams) throws Exception {
         Request request = RequestFactory.getRequestMethod(requestMethod);
-        request.requestEqual(requestParams);
+        request.requestEqual(requestParams, ContentType.JSON);
     }
 
     @DataProvider(name = "getGantryInfoList")
     public Object[][] getGantryInfoList() {
-        RequestParams requestParams =
-                new RequestParams(COOKIE_NAME, token, GET_GANTRY_INFO_LIST, paramsMap, "return_code", "200");
+//        RequestParams requestParams1 =
+//                new RequestParams(COOKIE_NAME, token, GET_GANTRY_INFO_LIST, paramsMap, "return_code", "200");
+        paramsMap.put("id", "G000111001000610010");
+        paramsMap.put("provinceId", "11");
+//        paramsMap.put("name", "北京漷县站-北京郎府站1");
+        paramsMap.put("type", 0);
+        paramsMap.put("pageNo", 1);
+        paramsMap.put("pageSize", 10);
+        RequestParams requestParams2 =
+                new RequestParams(COOKIE_NAME, token, GET_GANTRY_INFO_LIST, paramsMap, "rows[0].name", "北京漷县站-北京郎府站1");
+
         requestMethod = getValue("test", "method");
 
         return new Object[][]{
-                {requestMethod, requestParams}
+//                {requestMethod, requestParams1},
+                {requestMethod, requestParams2},
         };
     }
 
@@ -103,8 +114,13 @@ public class BizFrameTestController extends TestBase {
     @Test(dataProvider = "getGantryInfoList")
     public void getGantryInfoListTest(String requestMethod, RequestParams requestParams) throws Exception {
         Request request = RequestFactory.getRequestMethod(requestMethod);
-        request.requestEqual(requestParams);
+        request.requestEqual(requestParams, ContentType.URLENC);
     }
 
-
+    @Test
+    public void downloadFileTest()  {
+        paramsMap.clear();
+        paramsMap.put("provinceId", 11);
+        getPrint(ContentType.XML, DOWNLOAD_FILE, COOKIE_NAME, token, paramsMap);
+    }
 }
