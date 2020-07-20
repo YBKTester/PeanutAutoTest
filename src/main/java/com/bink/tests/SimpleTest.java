@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 /**
+ * 测试数据库操作方法
+ *
  * @author Bink
  * @date 2020/6/24
  */
@@ -35,7 +37,7 @@ public class SimpleTest {
     @Test
     public void paramsTest() {
         List<Params> paramsList = paramsMapper.selectList(null);
-        Assert.assertEquals(1, paramsList.size());
+        Assert.assertEquals(2, paramsList.size());
         paramsList.forEach(params -> System.out.println(params.getCaseName()));
         System.out.println("测试结束！！！");
     }
