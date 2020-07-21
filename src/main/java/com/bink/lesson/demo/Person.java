@@ -6,21 +6,38 @@ package com.bink.lesson.demo;
  */
 public class Person {
 
-    /**
-     * 自己的名字
-     */
-    public String name;
+    private String name;
+    private int age;
 
     public Person() {
-        System.out.println("构造方法执行啦！！");
     }
 
-    /**
-     * 打招呼方法
-     *
-     * @param name 对方的名字
-     */
-    public void sayHello(String name) {
-        System.out.println(name + ",你好！我是" + this.name);
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
