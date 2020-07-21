@@ -1,5 +1,7 @@
 package com.bink.lesson.method;
 
+import com.bink.lesson.demo.Phone;
+
 /**
  * 方法
  *
@@ -20,7 +22,12 @@ public class MethodTest {
         return a + b;
     }
 
+    public static Phone getPhone() {
+        return new Phone("Apple", 2000.02, "Green");
+    }
+
     public static void main(String[] args) {
         System.out.println(sum(2, 4));
+        System.out.println(getPhone().toString());
     }
 }

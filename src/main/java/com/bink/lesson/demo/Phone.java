@@ -9,6 +9,15 @@ public class Phone {
     private double price;
     private String color;
 
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "brand='" + brand + '\'' +
+                ", price=" + price +
+                ", color='" + color + '\'' +
+                '}';
+    }
+
     /**
      * 打电话
      *
@@ -16,6 +25,12 @@ public class Phone {
      */
     public void call(String name) {
         System.out.println("给" + name + "打电话！");
+    }
+
+    public Phone(String brand, double price, String color) {
+        this.brand = brand;
+        this.price = price;
+        this.color = color;
     }
 
     /**
