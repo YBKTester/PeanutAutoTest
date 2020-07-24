@@ -6,4 +6,8 @@ package com.bink.lesson.ex;
  */
 public class Fu {
     int num = 10;
+
+    public Fu() {
+        System.out.println("弗雷构造方法");
+    }
 }

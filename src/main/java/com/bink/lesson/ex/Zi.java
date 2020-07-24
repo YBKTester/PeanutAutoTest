@@ -13,4 +13,10 @@ public class Zi extends Fu {
         System.out.println(this.num);
         System.out.println(super.num);
     }
+
+
+    public Zi() {
+        super();
+        System.out.println("子雷构造方法");
+    }
 }
