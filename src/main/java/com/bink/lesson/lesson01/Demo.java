@@ -1,8 +1,8 @@
-package com.bink.lesson01;
+package com.bink.lesson.lesson01;
 
-import com.bink.lesson01.dao.MyInterfacePrivateA;
-import com.bink.lesson01.dao.MyInterfaceStatic;
-import com.bink.lesson01.impl.MyInterfaceStaticImpl;
+import com.bink.lesson.lesson01.dao.MyInterfacePrivateA;
+import com.bink.lesson.lesson01.dao.MyInterfaceStatic;
+import com.bink.lesson.lesson01.impl.MyInterfaceStaticImpl;
 
 /**
  * @author yangbingkun

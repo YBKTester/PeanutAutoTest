@@ -1,7 +1,7 @@
-package com.bink.lesson01.test;
+package com.bink.lesson.lesson01.test;
 
 
-import com.bink.lesson01.impl.InterfaceDemoImpl;
+import com.bink.lesson.lesson01.impl.InterfaceDemoImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

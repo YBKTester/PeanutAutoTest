@@ -1,4 +1,4 @@
-package com.bink.lesson01.dao;
+package com.bink.lesson.lesson01.dao;
 
 /**
  * @author yangbingkun

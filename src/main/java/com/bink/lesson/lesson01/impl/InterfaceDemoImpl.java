@@ -1,6 +1,6 @@
-package com.bink.lesson01.impl;
+package com.bink.lesson.lesson01.impl;
 
-import com.bink.lesson01.dao.InterfaceDemo;
+import com.bink.lesson.lesson01.dao.InterfaceDemo;
 import org.springframework.stereotype.Component;
 
 /**
