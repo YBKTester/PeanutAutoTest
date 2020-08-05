@@ -1,4 +1,4 @@
-package com.bink.lesson.enumtest;
+package com.bink.lesson.day26.enumtest;
 
 /**
  * @author yangbingkun

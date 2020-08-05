@@ -1,4 +1,4 @@
-package com.bink.lesson.method.test;
+package com.bink.lesson.day26.method.test;
 
 /**
  * @author yangbingkun

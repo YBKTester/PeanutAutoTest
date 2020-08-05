@@ -1,6 +1,4 @@
-package com.bink.lesson.enumtest;
-
-import org.testng.annotations.Test;
+package com.bink.lesson.day26.enumtest;
 
 /**
  * @author yangbingkun

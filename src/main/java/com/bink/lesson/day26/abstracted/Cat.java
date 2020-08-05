@@ -1,4 +1,4 @@
-package com.bink.lesson.abstracted;
+package com.bink.lesson.day26.abstracted;
 
 /**
  * @author yangbingkun

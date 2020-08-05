@@ -1,4 +1,4 @@
-package com.bink.lesson.lesson02;
+package com.bink.lesson.day27.lesson02;
 
 /**
  * @author yangbingkun
