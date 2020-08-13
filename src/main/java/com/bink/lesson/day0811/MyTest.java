@@ -21,15 +21,32 @@ public class MyTest implements Runnable {
      */
     @Override
     public void run() {
-        while (true) {
-            synchronized (object) {
-            if (tickets > 0) {
-                    System.out.println(Thread.currentThread().getName() + "===>>正在卖第" + tickets + "张票！");
-                    tickets--;
-                }
-
-            }
+        while (tickets > 0) {
+//            synchronized (object) {
+//                if (tickets > 0) {
+//                    System.out.println(Thread.currentThread().getName() + "===>>正在卖第" + tickets + "张票！");
+//                    tickets--;
+//                }
+//
+//            }
+            payTickets();
         }
 
+    }
+
+    /**
+     * 同步方法
+     * 锁的对象是this
+     */
+    public synchronized void payTickets() {
+        if (tickets > 0) {
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + "===>>正在卖第" + tickets + "张票！");
+            tickets--;
+        }
     }
 }
