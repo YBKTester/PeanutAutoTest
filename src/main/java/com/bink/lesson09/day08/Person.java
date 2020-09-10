@@ -7,6 +7,7 @@ import java.io.Serializable;
  * 2020/9/8 --5:25 下午
  */
 public class Person implements Serializable {
+    private static final long serialVersionUID = 20L;
     private String name;
     private int age;
 
