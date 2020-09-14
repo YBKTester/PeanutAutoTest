@@ -1,15 +1,20 @@
-package com.bink.lesson09.day08;
-
-import java.io.Serializable;
+package com.bink.lesson09.day14.reflect;
 
 /**
  * @author yangbingkun
- * 2020/9/8 --5:25 下午
+ * 2020/9/14 --4:51 下午
  */
-public class Person implements Serializable {
-    private static final long serialVersionUID = 20L;
-    private String name;
-    private int age;
+public class Person {
+    public String name;
+    public int age;
+
+    public void eat() {
+        System.out.println("eat...");
+    }
+
+    public void eat(String food) {
+        System.out.println("eat..." + food);
+    }
 
     public Person() {
     }
