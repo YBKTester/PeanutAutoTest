@@ -1,6 +1,4 @@
-package com.bink.lesson09.day14;
-
-import java.util.stream.Stream;
+package com.bink.lesson09.day14.stream;
 
 /**
  * @author yangbingkun

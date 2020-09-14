@@ -1,4 +1,4 @@
-package com.bink.lesson09.day14;
+package com.bink.lesson09.day14.stream;
 
 /**
  * @author yangbingkun

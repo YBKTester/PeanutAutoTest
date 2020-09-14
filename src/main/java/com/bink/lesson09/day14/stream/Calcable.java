@@ -1,4 +1,4 @@
-package com.bink.lesson09.day14;
+package com.bink.lesson09.day14.stream;
 
 /**
  * @author yangbingkun
@@ -6,5 +6,11 @@ package com.bink.lesson09.day14;
  */
 @FunctionalInterface
 public interface Calcable {
+    /**
+     * asd
+     *
+     * @param number asd
+     * @return asd
+     */
     int cals(int number);
 }
