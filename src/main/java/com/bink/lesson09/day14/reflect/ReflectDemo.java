@@ -24,7 +24,5 @@ public class ReflectDemo {
 
         Method method = aClass.getMethod(methodName);
         method.invoke(o);
-
-//        System.out.println(className + methodName);
     }
 }
