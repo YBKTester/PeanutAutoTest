@@ -3,14 +3,12 @@ package com.bink.lesson09.day17;
 import com.bink.utils.JDBCUtils;
 import com.bink.utils.LogUtils;
 import org.apache.log4j.Logger;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -81,19 +79,22 @@ public class JdbcTemplateTest {
     @Test
     public void queryListTest() {
         String sql = "SELECT * FROM account1";
-        List<Emp> list = template.query(sql, new RowMapper<Emp>() {
+//        List<Emp> list = template.query(sql, (rs, i) -> {
+//            Emp emp = new Emp();
+//            int id = rs.getInt("id");
+//            String ename = rs.getString("ename");
+//            int jobId = rs.getInt("jobId");
+//
+//            emp.setId(id);
+//            emp.setName(ename);
+//            emp.setJobId(jobId);
+//            return emp;
+//        });
+        List<Emp> list = template.query(sql, new BeanPropertyRowMapper<>(Emp.class));
 
-            @Override
-            public Emp mapRow(ResultSet rs, int i) throws SQLException {
-                Emp emp = new Emp();
-                int id = rs.getInt("id");
-                String ename = rs.getString("ename");
-                return null;
-            }
-        });
-//        for (Map<String, Object> map : mapList) {
-//            System.out.println(map);
-//        }
+        for (Emp emp : list) {
+            System.out.println(emp);
+        }
     }
 
     /**
@@ -101,6 +102,10 @@ public class JdbcTemplateTest {
      */
     @Test
     public void queryAccountTest() {
-
+        String sql = "SELECT count(id) FROM account1";
+        Long total = template.queryForObject(sql, Long.class);
+        System.out.println(
+                total
+        );
     }
 }
