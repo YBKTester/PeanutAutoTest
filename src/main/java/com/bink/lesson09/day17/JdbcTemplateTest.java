@@ -78,18 +78,7 @@ public class JdbcTemplateTest {
      */
     @Test
     public void queryListTest() {
-        String sql = "SELECT * FROM account1";
-//        List<Emp> list = template.query(sql, (rs, i) -> {
-//            Emp emp = new Emp();
-//            int id = rs.getInt("id");
-//            String ename = rs.getString("ename");
-//            int jobId = rs.getInt("jobId");
-//
-//            emp.setId(id);
-//            emp.setName(ename);
-//            emp.setJobId(jobId);
-//            return emp;
-//        });
+        String sql = "SELECT * FROM emp";
         List<Emp> list = template.query(sql, new BeanPropertyRowMapper<>(Emp.class));
 
         for (Emp emp : list) {

@@ -1,14 +1,24 @@
 package com.bink.lesson09.day17;
 
+
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
+
 /**
  * @author yangbingkun
  * @Package com.bink.lesson09.day17
  * @date 2020/9/17 --5:56 下午
  */
+@Entity
+@Table
 public class Emp {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private String name;
-    private int jobId;
+    private Integer jobId;
 
     public Emp() {
     }
@@ -42,4 +52,15 @@ public class Emp {
     public void setJobId(int jobId) {
         this.jobId = jobId;
     }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", jobId=" + jobId +
+                '}';
+    }
+
+
 }
